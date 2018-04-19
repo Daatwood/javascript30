@@ -10,12 +10,12 @@ body,html {
 }
 h1 {
   font-size: 15em;
-  color: white;
+  color: #ff8d00;
   margin: 0;
-  text-shadow: 0 0 .5rem black;
   text-align: center;
   font-family: monospace;
   text-transform: uppercase;
+  text-shadow: 5px 2px #EFEFEF;
 }
 .keys {
   display: flex;
@@ -41,8 +41,8 @@ h1 {
 
 .playing {
   transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  border-color: #00ff7d;
+  box-shadow: 0 0 1rem #00ff7d;
 }
 
 kbd {
@@ -54,7 +54,7 @@ kbd {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: #00ff7d;
 }
 
 a.image-credit {
