@@ -42,23 +42,6 @@
   <input name="transportation-input" type=text value="car,car,truck,truck,bike,walk,car,van,bike,walk,car,van,car,truck"></input>
   <code name="transportation"></code>
   <script>
-    // Setting up some display code of inventors
-    Object.prototype.toString = function(){
-      var output = "";
-      Object.keys(this).forEach(function(item, index, arr){
-        output += `[${Object.values(item).join(', ')}]<br>`
-      })
-      return output;
-    }
-    Array.prototype.toString = function(){
-      var output = "";
-      this.forEach(function(item, index, arr){
-        output += `[${Object.values(item).join(', ')}]<br>`
-      })
-      return output;
-    }
-
-
 
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
