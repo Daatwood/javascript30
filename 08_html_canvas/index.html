@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+    <!-- TODO -->
+    <!-- Add Color palette and line width adjuster UI -->
+    <!-- Better responsive layout, frame on Desktop and full width on mobile-->
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.strokeStyle = 'black';
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 25;
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let hue = 0;
+    let direction = true;
+
+    function draw(e) {
+        if(!isDrawing) return;
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        hue++;
+
+        if (ctx.lineWidth > 100 || ctx.lineWidth < 25)
+            direction = !direction
+        direction ? ctx.lineWidth++ : ctx.lineWidth--;
+    }
+
+    function beginDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    function endDrawing(e) {
+        isDrawing = false;
+    }
+
+    canvas.addEventListener('mousemove',draw);
+    canvas.addEventListener('mousedown', beginDrawing);
+    canvas.addEventListener('mouseup', endDrawing);
+    canvas.addEventListener('mouseout', endDrawing);
+    
+    
+</script>
+
+<style>
+  html, body {
+    margin:0;
+    background-color: black;
+  }
+</style>
+
+</body>
+</html>
